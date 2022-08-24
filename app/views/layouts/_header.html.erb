@@ -1,0 +1,40 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <%= link_to welcome_index_path, class: "logo d-flex align-items-center me-auto me-lg-0" do%>
+        <%= image_tag("favicon.png") %>
+        <h1>Write Your Blog<span>.</span></h1>
+      <% end %>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <!-- <li><a href="#hero">Home</a></li> -->
+          <li><a href="#menu">Latest</a></li>
+          <li><a href="#events">Top</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <% if user_signed_in? %>
+            <li><%= link_to new_blog_path, class:"btn-book-a-table" do %>
+                  Write a Blog
+              <%end %></li>
+            <li><%= link_to 'My Blogs', my_blogs_blogs_path %></li>
+          <li class="dropdown"><a href="#"><span>Settings</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+                <li><%= link_to "#{current_user.first_name}", edit_user_registration_path %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+              </li>
+            </ul>
+          </li> 
+        </ul>
+         </nav><!-- .navbar -->
+          <% else %>
+           </nav><!-- .navbar -->
+              <%= link_to new_user_session_path, class:"btn-book-a-table" do %>
+                  Login
+              <%end %>
+            <!-- <a class="btn-book-a-table" href="#book-a-table">Create Account</a> -->
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+          <% end %>
+
+    </div>
+  </header><!-- End Header -->
