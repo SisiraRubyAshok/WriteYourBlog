@@ -3,8 +3,9 @@
 <%= render @blog %>
 
 <div>
-  <%= link_to "Edit this blog", edit_blog_path(@blog) %> |
-  <%= link_to "Back to blogs", blogs_path %>
-
-  <%= button_to "Destroy this blog", @blog, method: :delete %>
+  <% if current_user.present? && @blog.user_id == current_user.id %>
+    <%= link_to "Edit this blog", edit_blog_path(@blog) , class:"btn btn-info" %> 
+    <%= button_to "Destroy this blog", @blog, method: :delete , class:"btn btn-danger"%>
+  <% end %>
+  <%= link_to "Back", :back %>
 </div>

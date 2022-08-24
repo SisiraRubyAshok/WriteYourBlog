@@ -8,7 +8,7 @@ class BlogsController < ApplicationController
   end
 
   def my_blogs
-    @blogs = Blog.all
+    @blogs = current_user.blogs
   end
   # GET /blogs/1 or /blogs/1.json
   def show
@@ -25,6 +25,7 @@ class BlogsController < ApplicationController
 
   # POST /blogs or /blogs.json
   def create
+
     @blog = Blog.new(blog_params)
 
     respond_to do |format|
@@ -69,7 +70,7 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :content)
+      params.require(:blog).permit(:title, :content, :user_id)
     end
 
     def find_current_user

@@ -9,19 +9,23 @@
     </div>
   </div>
   <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-    <%= image_tag "hero-img.png", class:"img-fluid" %>
+    <%= image_tag "sample1.jpg", class:"img-fluid" %>
     <!-- <img src="assets/img/hero-img.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300"> -->
   </div>
 </div>
 <section>
     <div class="container px-4 px-lg-5">
+      <div class="section-header">
+          <h2>Top Blogs</h2>
+          <p>Dont <span>Miss</span> It</p>
+        </div>
       <div class="row gx-4 gx-lg-5 justify-content-center">
         
           <div class="col-md-10 col-lg-8 col-xl-7">
             <% @blogs.each do |blog| %>
                 <div class="post-preview">
                     <%= link_to blog_path(blog)  do%>
-                        <h2 class="post-title"><%= blog.title %></h2>
+                        <h2 class="post-title sm"><%= blog.title %></h2>
                         <h3 class="post-subtitle"><%= blog.content %></h3>
                     <% end%>
                     <p class="post-meta">
@@ -40,7 +44,7 @@
       </div>
   </div>
 </section>
-<section id="chefs" class="chefs section-bg">
+<!-- <section id="chefs" class="chefs section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>Chefs</h2>
@@ -66,9 +70,10 @@
                 <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
               </div>
             </div>
-          </div><!-- End Chefs Member -->
+          </div> -->
+          <!-- End Chefs Member -->
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+         <!--  <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="chef-member">
               <div class="member-img">
                 <img src="assets/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
@@ -85,9 +90,9 @@
                 <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
               </div>
             </div>
-          </div><!-- End Chefs Member -->
+          </div> --><!-- End Chefs Member -->
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+          <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="chef-member">
               <div class="member-img">
                 <img src="assets/img/chefs/chefs-3.jpg" class="img-fluid" alt="">
@@ -104,9 +109,9 @@
                 <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
               </div>
             </div>
-          </div><!-- End Chefs Member -->
+          </div> --><!-- End Chefs Member -->
 
-        </div>
+        <!-- </div>
 
       </div>
-    </section><!-- End Chefs Section -->
+    </section> --><!-- End Chefs Section -->
