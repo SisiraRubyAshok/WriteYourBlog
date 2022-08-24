@@ -8,11 +8,11 @@
                 <div class="post-preview">
                     <%= link_to blog_path(blog)  do%>
                         <h2 class="post-title"><%= blog.title %></h2>
-                        <h3 class="post-subtitle"><%= blog.content %></h3>
+                        <h3 class="post-subtitle"><%=blog.content.to_s.first(200) %></h3>
                     <% end%>
                     <p class="post-meta">
                         Posted by
-                        Start Bootstrap
+                        <%= blog.user.name %>
                         on <%= blog.created_at %>
                     </p>
                 </div>
@@ -21,6 +21,8 @@
               <!-- Pager-->
              
               <% end %>
+              <%== pagy_bootstrap_combo_nav_js @pagy %>
+                <%#== pagy_nav(@pagy) %>
               <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
           </div>
       </div>

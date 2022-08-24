@@ -8,8 +8,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <!-- <li><a href="#hero">Home</a></li> -->
-          <li><a href="#menu">Latest</a></li>
-          <li><a href="#events">Top</a></li>
+          <li><%= link_to "Latest", blogs_path(:type => "latest")%></li>
+          <li><%= link_to "Top", blogs_path(:type => "top")%></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <% if user_signed_in? %>
@@ -19,7 +19,7 @@
             <li><%= link_to 'My Blogs', my_blogs_blogs_path %></li>
           <li class="dropdown"><a href="#"><span>Settings</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-                <!-- <li><%#= link_to "#{current_user.first_name}", edit_user_registration_path %></li> -->
+                <li><%= link_to "#{current_user.name}", my_blogs_blogs_path %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %></li>
               </li>
             </ul>

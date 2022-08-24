@@ -4,11 +4,16 @@ class BlogsController < ApplicationController
 
   # GET /blogs or /blogs.json
   def index
-    @blogs = Blog.all
+    blogs = Blog.all
+    if params[:type].eql?("latest")
+      @blogs = blogs.reverse
+    end
+    @pagy,  @blogs = pagy(blogs)
+    
   end
 
   def my_blogs
-    @blogs = current_user.blogs
+    @pagy, @blogs = pagy(current_user.blogs)
   end
   # GET /blogs/1 or /blogs/1.json
   def show
