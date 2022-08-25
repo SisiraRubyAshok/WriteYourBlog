@@ -16,11 +16,11 @@
                         on <%= blog.created_at %>
                     </p>
                 </div>
-               
               <hr class="my-4" />
-              <!-- Pager-->
-             
               <% end %>
+               <!-- <div id="next_link">
+                  <%#= button_to "next", pagy_url_for(@pagy, @pagy.next) %>
+               </div> -->
               <%== pagy_bootstrap_combo_nav_js @pagy %>
                 <%#== pagy_nav(@pagy) %>
               <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>

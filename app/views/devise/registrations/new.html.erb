@@ -25,7 +25,7 @@
                     <label class="form-label" for="form2Examplename2">Last Name</label>
                   </div>
                   <div class="form-outline mb-2">
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", id:"form2Example11", class:"form-control", placeholder:"Phone number or email address" %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", id:"form2Example11", class:"form-control", placeholder:"email address" %>
                     <label class="form-label" for="form2Example11">Email</label>
                   </div>
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -33,7 +33,7 @@
                   <% end %>
                   <div class="form-outline mb-2">
                     <%= f.password_field :password, autocomplete: "new-password",id:"form2Example22", class:"form-control"%>
-                    <label class="form-label" for="form2Example22">Password<i>(leave blank if you don't want to change it)</i></label>
+                    <label class="form-label" for="form2Example22">Password</label>
                   </div>
 
                   <div class="form-outline mb-2">
@@ -49,14 +49,6 @@
                     <%= link_to "LogIn", new_session_path(resource_name),class:"btn btn-outline-danger"%> <br />
                   </div>
               <% end %>
-              </div>
-            </div>
-            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">We are more than just a company</h4>
-                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               </div>
             </div>
           </div>

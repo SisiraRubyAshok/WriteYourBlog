@@ -1,0 +1,23 @@
+# app/views/comments/index.turbo_stream.erb
+<%= turbo_stream.append "comments" do %>
+  <% @blogs.each do |blog| %>
+                <div class="post-preview">
+                    <%= link_to blog_path(blog)  do%>
+                        <h2 class="post-title"><%= blog.title %></h2>
+                        <h3 class="post-subtitle"><%=blog.content.to_s.first(200) %></h3>
+                    <% end%>
+                    <p class="post-meta">
+                        Posted by
+                        <%= blog.user.name %>
+                        on <%= blog.created_at %>
+                    </p>
+                </div>
+              <hr class="my-4" />
+              <% end %>
+<% end %>
+
+<%= turbo_stream.update "next_link" do %>
+  <% if @pagy.next.present? %>
+    <%= button_to "next", pagy_url_for(@pagy, @pagy.next) %>
+  <% end %>
+<% end %>

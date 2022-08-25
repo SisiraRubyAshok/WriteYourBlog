@@ -22,6 +22,7 @@
   <%= form.hidden_field :user_id, value: current_user.id %>
   <br>
   <div class="text-center form-group">
-    <%= form.submit class: "btn btn-book-a-table"  %>
+    <%= form.button 'Save as Draft', value: 'Draft', name: 'publish_state', class: 'btn btn-outline-danger', type: 'submit' %>
+    <%= form.button 'Publish', value: 'Published', name: 'publish_state', class: 'btn btn-book-a-table', type: 'submit' %>
   </div>
 <% end %>

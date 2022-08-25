@@ -4,11 +4,17 @@ class BlogsController < ApplicationController
 
   # GET /blogs or /blogs.json
   def index
-    blogs = Blog.all
+    blogs = Blog.published
     if params[:type].eql?("latest")
-      @blogs = blogs.reverse
+      blogs = blogs.order(created_at: :desc)
+    elsif params[:type].eql?("top")
+      blogs
     end
-    @pagy,  @blogs = pagy(blogs)
+    @pagy,@blogs = pagy_countless(blogs)
+    respond_to do |format|
+      format.html # GET
+      format.turbo_stream # POST
+    end
     
   end
 
@@ -30,9 +36,10 @@ class BlogsController < ApplicationController
 
   # POST /blogs or /blogs.json
   def create
-
     @blog = Blog.new(blog_params)
-
+      if params[:publish_state].eql?("Published")
+        @blog.post = 1
+      end
     respond_to do |format|
       if @blog.save
         format.html { redirect_to blog_url(@blog), notice: "Blog was successfully created." }
@@ -46,6 +53,9 @@ class BlogsController < ApplicationController
 
   # PATCH/PUT /blogs/1 or /blogs/1.json
   def update
+    if params[:publish_state].eql?("Published")
+        @blog.post = 1
+    end
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to blog_url(@blog), notice: "Blog was successfully updated." }
